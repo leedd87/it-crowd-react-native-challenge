@@ -31,16 +31,14 @@ export const HomeScreen = () => {
                 style={{ marginTop: 10 }}
             />
 
-            {/* <NewsCards
-                article={news[0]}
-            /> */}
 
-            <Button
+            {/* //TESTING borrar lo de abajo */}
+            {/* <Button
                 title="Ir a favoritos"
                 onPress={() => {
                     navigation.navigate('FavoritesScreen');
                 }}
-            />
+            /> */}
         </SafeAreaView>
     );
 };
