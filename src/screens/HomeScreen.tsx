@@ -1,23 +1,21 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
-import { Button, Text, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { getNews } from '../store/newsSlices/thunks';
-import newsApi from '../api/newsApi';
+import React from 'react';
+import { ActivityIndicator, Button, Text, View } from 'react-native';
+import { useNews } from '../hooks/useNews';
+
 
 export const HomeScreen = () => {
     const navigation = useNavigation();
 
-    // const news = useSelector(state => state.news);
-    // console.log('🚀 ~ file: HomeScreen.jsx:11 ~ HomeScreen ~ news:', news);
-    // const dispatch = useDispatch();
+    const { news, isLoading } = useNews()
 
-    useEffect(() => {
-        // dispatch(getNews())
-        newsApi.get('/v2/top-headlines')
-            .then(resp =>
-                console.log(resp.data.articles))
-    }, [])
+    if (isLoading) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+                <ActivityIndicator color='red' size={50} />
+            </View>
+        )
+    }
 
     return (
         <View>
