@@ -2,6 +2,7 @@ import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Article } from '../interfaces/newsInterface'
 import { useNavigation } from '@react-navigation/native'
+import { Divider } from '../utils/Divider'
 
 interface Props {
     article: Article
@@ -30,7 +31,7 @@ export const NewsCards = ({ article }: Props) => {
                 style={styles.image}
             />
             <Text>{article.title}</Text>
-            <View style={styles.line}></View>
+            <Divider />
 
         </TouchableOpacity>
     )
@@ -40,10 +41,5 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
 
-    },
-    line: {
-        borderBottomWidth: 1, // Ancho de la línea
-        borderBottomColor: 'black', // Color de la línea
-        marginVertical: 10, // Margen vertical para espaciar la línea
     }
 })
