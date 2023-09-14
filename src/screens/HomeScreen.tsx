@@ -2,6 +2,8 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { ActivityIndicator, Button, Text, View } from 'react-native';
 import { useNews } from '../hooks/useNews';
+import { NewsCards } from '../components/newsCards';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export const HomeScreen = () => {
@@ -18,8 +20,8 @@ export const HomeScreen = () => {
     }
 
     return (
-        <View>
-            <Text>Home Screen</Text>
+        <SafeAreaView style={{ flex: 1 }}>
+            <NewsCards />
 
             <Button
                 title="Ir a favoritos"
@@ -27,6 +29,6 @@ export const HomeScreen = () => {
                     navigation.navigate('FavoritesScreen');
                 }}
             />
-        </View>
+        </SafeAreaView>
     );
 };
