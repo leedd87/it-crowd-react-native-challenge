@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { ActivityIndicator, Button, Text, View } from 'react-native';
+import { ActivityIndicator, Button, FlatList, ListRenderItem, Text, View } from 'react-native';
 import { useNews } from '../hooks/useNews';
 import { NewsCards } from '../components/newsCards';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -21,7 +21,16 @@ export const HomeScreen = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <NewsCards />
+
+            <FlatList
+                data={news}
+                renderItem={({ item, index }: any) => <NewsCards article={item} key={`news-${index}`} />}
+                style={{ marginTop: 10 }}
+            />
+
+            {/* <NewsCards
+                article={news[0]}
+            /> */}
 
             <Button
                 title="Ir a favoritos"

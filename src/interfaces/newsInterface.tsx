@@ -5,17 +5,20 @@ export interface News {
 }
 
 export interface Article {
-    source: Source;
+    source: {
+        id: null | string;
+        name: string;
+    }
     author: null | string;
     title: string;
     description: null | string;
     url: string;
-    urlToImage: null | string;
+    urlToImage: string;
     publishedAt: string;
     content: null | string;
 }
 
-export interface Source {
-    id: null | string;
-    name: string;
-}
+// export interface Source {
+//     id: null | string;
+//     name: string;
+// }
