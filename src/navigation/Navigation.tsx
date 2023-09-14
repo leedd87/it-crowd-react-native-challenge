@@ -4,10 +4,14 @@ import { HomeScreen } from '../screens/HomeScreen';
 import { FavoritesScreen } from '../screens/FavoritesScreen';
 import { DetailScreen } from '../screens/DetailScreen';
 import { Article } from '../interfaces/newsInterface';
+import { TabsNavigator } from './TabsNavigation';
 
 export type RootStackParams = {
-    HomeScreen: undefined,
-    FavoritesScreen: Article,
+    Home: undefined,
+    TabsNavigator: undefined,
+    //TODO
+    // Favorites: []
+    Favorites: undefined,
     DetailScreen: Article
 }
 
@@ -23,8 +27,9 @@ export const Navigation = () => {
                 }
             }}
         >
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="FavoritesScreen" component={FavoritesScreen} />
+            {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+            <Stack.Screen name="TabsNavigator" component={TabsNavigator} />
+            {/* <Stack.Screen name="FavoritesScreen" component={FavoritesScreen} /> */}
             <Stack.Screen name="DetailScreen" component={DetailScreen} />
 
         </Stack.Navigator>
