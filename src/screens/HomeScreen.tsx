@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { ActivityIndicator, Button, FlatList, ListRenderItem, Text, View } from 'react-native';
+import { ActivityIndicator, Button, FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
 import { useNews } from '../hooks/useNews';
 import { NewsCards } from '../components/newsCards';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -21,6 +21,9 @@ export const HomeScreen = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
+            <View style={styles.titleContainer}>
+                <Text style={styles.titleText}>News App</Text>
+            </View>
 
             <FlatList
                 data={news}
@@ -41,3 +44,17 @@ export const HomeScreen = () => {
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+    titleContainer: {
+        backgroundColor: 'blue',
+        paddingVertical: 10, // Espacio vertical alrededor del texto
+        alignItems: 'center', // Centra el texto horizontalmente
+    },
+    titleText: {
+        fontSize: 24, // Tamaño de fuente
+        fontWeight: 'bold', // Peso de fuente en negrita
+        color: 'white', // Color de texto
+        fontFamily: 'Helvetica', // Puedes cambiar la fuente según tus preferencias
+    },
+});

@@ -5,10 +5,7 @@ export interface News {
 }
 
 export interface Article {
-    source: {
-        id: null | string;
-        name: string;
-    }
+    source: Source
     author: null | string;
     title: string;
     description: null | string;
@@ -18,7 +15,7 @@ export interface Article {
     content: null | string;
 }
 
-// export interface Source {
-//     id: null | string;
-//     name: string;
-// }
+export interface Source {
+    id: null | string;
+    name: string;
+}
