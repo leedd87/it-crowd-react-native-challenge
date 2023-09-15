@@ -10,7 +10,6 @@ interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { }
 export const DetailScreen = ({ route }: Props) => {
 
     const article = route.params
-    console.log("🚀 ~ file: DetailScreen.tsx:13 ~ DetailScreen ~ article:", article)
 
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://picsum.photos/seed/picsum/200/300'
 
