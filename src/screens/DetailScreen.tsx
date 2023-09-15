@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
-import { Image, StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Linking, SafeAreaView } from 'react-native'
 import { RootStackParams } from '../navigation/Navigation'
 import { Divider } from '../utils/Divider'
 
@@ -10,6 +10,7 @@ interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { }
 export const DetailScreen = ({ route }: Props) => {
 
     const article = route.params
+    console.log("🚀 ~ file: DetailScreen.tsx:13 ~ DetailScreen ~ article:", article)
 
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://picsum.photos/seed/picsum/200/300'
 
@@ -18,7 +19,7 @@ export const DetailScreen = ({ route }: Props) => {
     };
 
     return (
-        <View style={styles.imageContainer}>
+        <SafeAreaView style={styles.detailContainer}>
             <Text style={styles.titleText}>{article.title}</Text>
             <Text style={styles.descriptionText}>{article.description}</Text>
             <Divider />
@@ -32,12 +33,13 @@ export const DetailScreen = ({ route }: Props) => {
             <TouchableOpacity onPress={handleOpenURL} style={{ marginTop: 5 }}>
                 <Text style={styles.linkText}>{article.url}</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    imageContainer: {
+    detailContainer: {
+
         height: '100%',
         margin: 15,
     },
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
     descriptionText: {
         fontSize: 14,
         fontFamily: 'Helvetica',
+        marginVertical: 10
 
     },
     authorText: {

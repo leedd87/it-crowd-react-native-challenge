@@ -30,7 +30,7 @@ export const NewsCards = ({ article }: Props) => {
                 source={{ uri }}
                 style={styles.image}
             />
-            <Text>{article.title}</Text>
+            <Text style={{ marginTop: 5 }}>{article.title}</Text>
             <Divider />
 
         </TouchableOpacity>

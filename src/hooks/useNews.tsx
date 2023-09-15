@@ -10,7 +10,7 @@ export const useNews = () => {
 
     const getNews = async () => {
 
-        const resp = await newsApi.get<News>('/v2/top-headlines')
+        const resp = await newsApi.get<News>('/v2/everything')
         setNews(resp.data.articles)
 
         setIsLoading(false)
