@@ -3,7 +3,7 @@ import axios from 'axios'
 export const newsApi = axios.create({
     baseURL: 'https://newsapi.org',
     params: {
-        domains: 'lanacion.com.ar',
+        domains: 'clarin.com',
         //apiKey: 'f3a50dc8b3d14b96abeec96fbfec8474'
         apiKey: 'a9d708e85c944c60ba59cb8b3c882329'
     }

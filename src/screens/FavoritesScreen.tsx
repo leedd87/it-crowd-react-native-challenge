@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text, View, SafeAreaView } from 'react-native'
-
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const FavoritesScreen = () => {
