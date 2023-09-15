@@ -46,13 +46,13 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
     titleContainer: {
         backgroundColor: '#586A6A',
-        paddingVertical: 10, // Espacio vertical alrededor del texto
-        alignItems: 'center', // Centra el texto horizontalmente
+        paddingVertical: 10,
+        alignItems: 'center',
     },
     titleText: {
-        fontSize: 24, // Tamaño de fuente
-        fontWeight: 'bold', // Peso de fuente en negrita
-        color: 'white', // Color de texto
-        fontFamily: 'Helvetica', // Puedes cambiar la fuente según tus preferencias
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'white',
+        fontFamily: 'Helvetica',
     },
 });
