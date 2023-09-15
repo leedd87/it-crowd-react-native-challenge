@@ -1,10 +1,13 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, SafeAreaView } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const FavoritesScreen = () => {
     return (
-        <View>
+        <SafeAreaView>
             <Text>Favorites Screen</Text>
-        </View>
+            <Icon name="airplane-outline" size={80} color="#4F8EF7" />
+        </SafeAreaView>
     )
 }

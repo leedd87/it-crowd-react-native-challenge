@@ -3,7 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from '../screens/HomeScreen';
 import { FavoritesScreen } from '../screens/FavoritesScreen';
 import { RootStackParams } from './Navigation';
-import { Text } from 'react-native';
+import { Platform, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Tab = createBottomTabNavigator<RootStackParams>();
@@ -13,30 +14,36 @@ export const TabsNavigator = () => {
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 headerShown: false,
-                tabBarActiveTintColor: 'blue',
+                tabBarActiveTintColor: '#818d92',
                 tabBarStyle: {
-                    borderTopColor: 'blue',
-                    borderTopWidth: 1
+                    borderTopColor: '#818d92',
+                    borderTopWidth: 1,
+                    backgroundColor: '#818d92'
                 },
                 tabBarLabelStyle: {
-                    fontSize: 12
+                    display: 'none'
                 },
                 tabBarIcon: ({ color, focused, size }) => {
                     let iconName: string = '';
                     switch (route.name) {
                         case 'Home':
-                            iconName = 'T1'
+                            iconName = 'home-outline'
                             break;
                         case 'Favorites':
-                            iconName = 'T2'
+                            iconName = 'heart-outline'
                             break;
                     }
-                    return <Text style={{ color: 'red' }}>{iconName}</Text>
+
+                    return Platform.OS === 'ios'
+                        ?
+                        <Icon name={iconName} size={25} color={"white"} style={{ marginTop: 25 }} />
+                        :
+                        <Icon name={iconName} size={25} color={"white"} />
                 }
             })}
         >
-            <Tab.Screen name="Home" options={{ title: 'Home' }} component={HomeScreen} />
-            <Tab.Screen name="Favorites" options={{ title: 'Favorites' }} component={FavoritesScreen} />
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Favorites" component={FavoritesScreen} />
         </Tab.Navigator>
     );
 }

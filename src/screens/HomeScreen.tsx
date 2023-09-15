@@ -45,7 +45,7 @@ export const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     titleContainer: {
-        backgroundColor: 'blue',
+        backgroundColor: '#586A6A',
         paddingVertical: 10, // Espacio vertical alrededor del texto
         alignItems: 'center', // Centra el texto horizontalmente
     },
