@@ -11,7 +11,7 @@ export const DetailScreen = ({ route }: Props) => {
 
     const article = route.params
 
-    const uri = article.urlToImage !== null ? article.urlToImage : 'https://picsum.photos/seed/picsum/200/300'
+    const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 
     const handleOpenURL = () => {
         Linking.openURL(article.url);
