@@ -10,7 +10,7 @@ interface Props {
 
 export const NewsCards = ({ article }: Props) => {
 
-    const uri = article.urlToImage !== null ? article.urlToImage : 'https://picsum.photos/seed/picsum/200/300'
+    const uri = article.urlToImage.length > 10 ? article.urlToImage : 'https://picsum.photos/seed/picsum/200/300'
 
     const navigation = useNavigation()
 
