@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, TouchableOpacity, View } from 'react-native'
+
 
 export const Categories = ({ getNewsByCategory, setCategoryPressed }: any) => {
 
@@ -15,73 +15,70 @@ export const Categories = ({ getNewsByCategory, setCategoryPressed }: any) => {
 
 
     return (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginHorizontal: 5 }}>
             <TouchableOpacity
+
+                activeOpacity={0.4}
                 onPress={() => handlePressGeneral()}
-                activeOpacity={0.8}
-                style={{
-                    width: 75,
-                    backgroundColor: '#C6C7C4',
-                    padding: 5,
-                    marginTop: 10,
-                    borderRadius: 3
-                }}
+                style={styles.container}
             >
                 <Text style={{ alignSelf: 'center' }}>Argentina</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                activeOpacity={0.4}
                 onPress={() => handlePress('business')}
-                activeOpacity={0.8}
-                style={{
-                    width: 70,
-                    backgroundColor: '#C6C7C4',
-                    padding: 5,
-                    marginTop: 10,
-                    borderRadius: 5
-                }}
+                style={styles.container}
             >
                 <Text style={{ alignSelf: 'center' }}>Business</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                activeOpacity={0.4}
+                onPress={() => handlePress('entertainment')}
+                style={styles.container}
+            >
+                <Text style={{ alignSelf: 'center' }}>Entertainment</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                activeOpacity={0.4}
                 onPress={() => handlePress('health')}
-                activeOpacity={0.8}
-                style={{
-                    width: 70,
-                    backgroundColor: '#C6C7C4',
-                    padding: 5,
-                    marginTop: 10,
-                    borderRadius: 5
-                }}
+                style={styles.container}
             >
                 <Text style={{ alignSelf: 'center' }}>Health</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                activeOpacity={0.4}
                 onPress={() => handlePress('science')}
-                activeOpacity={0.8}
-                style={{
-                    width: 70,
-                    backgroundColor: '#C6C7C4',
-                    padding: 5,
-                    marginTop: 10,
-                    borderRadius: 5
-                }}
+                style={styles.container}
             >
                 <Text style={{ alignSelf: 'center' }}>Science</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                activeOpacity={0.4}
                 onPress={() => handlePress('sports')}
-                activeOpacity={0.8}
-                style={{
-                    width: 70,
-                    backgroundColor: '#C6C7C4',
-                    padding: 5,
-                    marginTop: 10,
-                    borderRadius: 5
-                }}
+                style={styles.container}
             >
                 <Text style={{ alignSelf: 'center' }}>Sports</Text>
             </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+                activeOpacity={0.4}
+                onPress={() => handlePress('technology')}
+                style={styles.container}
+            >
+                <Text style={{ alignSelf: 'center' }}>Technology</Text>
+            </TouchableOpacity>
+        </ScrollView>
 
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginHorizontal: 5,
+        height: 35,
+        width: 100,
+        backgroundColor: '#C6C7C4',
+        padding: 5,
+        marginTop: 15,
+        borderRadius: 3
+    }
+})
