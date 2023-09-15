@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import newsApi from "../api/newsApi"
+import newsApi, { getNewsByCategoryApi } from "../api/newsApi"
 import { News, Article } from '../interfaces/newsInterface';
 
 
@@ -7,6 +7,7 @@ export const useNews = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [news, setNews] = useState<Article[]>([])
+
 
     const getNews = async () => {
 
@@ -16,6 +17,8 @@ export const useNews = () => {
         setIsLoading(false)
 
     }
+
+
 
 
     useEffect(() => {
