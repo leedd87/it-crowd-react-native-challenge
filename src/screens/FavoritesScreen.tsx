@@ -8,11 +8,6 @@ export const FavoritesScreen = () => {
 
     const favoriteNews = useAppSelector(state => state.newsReducer)
 
-    useEffect(() => {
-        console.log('disparo useEffect por cambios de favoritesNews')
-        console.log("🚀 ~ file: FavoritesScreen.tsx:9 ~ FavoritesScreen ~ favoriteNews:", favoriteNews.length)
-    }, [favoriteNews])
-
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.titleContainer}>
