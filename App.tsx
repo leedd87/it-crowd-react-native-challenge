@@ -3,7 +3,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './src/navigation/Navigation';
-import { store } from './src/store/store';
+import { store } from './src/redux/store';
+
 
 const App = () => {
   return (
