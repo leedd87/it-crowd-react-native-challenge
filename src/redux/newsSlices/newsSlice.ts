@@ -1,12 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Source } from '../../interfaces/newsInterface'
-
-
-//TESTING a ver si traigo las cosas que pasa
 interface ArticleAddState {
-    //source: Source
-    //TESTING estoy probando con id
-    //id: string | null;
+
     author: null | string;
     title: string;
     description: null | string;
@@ -15,11 +9,10 @@ interface ArticleAddState {
     publishedAt: string;
     content: null | string;
 }
-
 interface ArticleRemoveState {
     url: string;
 }
-//TODO el iniciaState => es un array de articles
+
 const initialState: ArticleAddState[] = []
 
 export const newsSlice = createSlice({
@@ -41,6 +34,12 @@ export const newsSlice = createSlice({
             }
         },
     },
+    //TESTING
+    // extraReducers:(builder)=>{
+    //     builder.addCase(getNewsAsyncThunk.fulfilled,(state,action)=>{
+    //         state.entries = action.payload
+    //     })
+    // }
 })
 
 export const { addToFavorites, removeFromFavorites } = newsSlice.actions
