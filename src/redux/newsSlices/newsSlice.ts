@@ -48,7 +48,7 @@ import { Source } from '../../interfaces/newsInterface'
 interface ArticleAddState {
     //source: Source
     //TESTING estoy probando con id
-    id: string | null;
+    //id: string | null;
     author: null | string;
     title: string;
     description: null | string;
@@ -70,12 +70,12 @@ export const newsSlice = createSlice({
     initialState,
     reducers: {
         addToFavorites: (state, action: PayloadAction<ArticleAddState>) => {
-            const { url, id } = action.payload
+            const { url } = action.payload
             if (
                 state.length === 0 ||
-                //state.filter(item => item.url === url).length === 0) {
+                state.filter(item => item.url === url).length === 0) {
                 //TESTING CON ID tb lo desestructure del action.payload
-                state.filter(item => item.id === id).length === 0) {
+                //state.filter(item => item.id === id).length === 0) {
                 state.push(action.payload)
             }
         },

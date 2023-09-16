@@ -25,7 +25,7 @@ export const NewsCards = ({ article }: Props) => {
     //TODO cambiar nombre
     const handleAddToCart = () => {
         dispatch(addToFavorites({
-            id: article.source.id,
+            //id: article.source.id,
             url: article.url,
             author: article.author,
             title: article.title,
@@ -56,6 +56,7 @@ export const NewsCards = ({ article }: Props) => {
                 />
                 <Text style={{ marginTop: 5 }}>{article.title}</Text>
             </TouchableOpacity>
+
             {/* //TODO Favoritos */}
             <TouchableOpacity
                 onPress={handleAddToCart}
