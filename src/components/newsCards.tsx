@@ -3,9 +3,9 @@ import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-n
 import { Article } from '../interfaces/newsInterface'
 import { useNavigation } from '@react-navigation/native'
 import { Divider } from '../utils/Divider'
-import { useAppDispatch } from '../redux/redux-hooks/redux-hooks'
+import { useAppDispatch, useAppSelector } from '../redux/redux-hooks/redux-hooks'
 import Icon from 'react-native-vector-icons/Ionicons';
-import { addToCart } from '../redux/newsSlices'
+import { addToFavorites } from '../redux/newsSlices'
 
 interface Props {
     article: Article
@@ -13,22 +13,27 @@ interface Props {
 
 export const NewsCards = ({ article }: Props) => {
 
-    //TESTING LE debo pasar al dispatch las variables de article EJemplo
-    let id = Number(article.source.id)
-    let name = article.publishedAt
-    let image = article.urlToImage
-    let info = article.title
-
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 
     const navigation = useNavigation()
 
     //TESTING haciendo redux aca para guardar los articles
     const dispatch = useAppDispatch()
+    //TESTING useAppSelector
+    //const itemsExist = useAppSelector((state) => state.newsReducer)
+
     //TODO cambiar nombre
     const handleAddToCart = () => {
-        console.log(dispatch(addToCart({ id, name, image, info })))
-
+        dispatch(addToFavorites({
+            id: article.source.id,
+            url: article.url,
+            author: article.author,
+            title: article.title,
+            urlToImage: article.urlToImage,
+            content: article.content,
+            description: article.description,
+            publishedAt: article.publishedAt
+        }))
     }
 
     return (

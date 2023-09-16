@@ -8,12 +8,13 @@
 // })
 
 import { configureStore } from '@reduxjs/toolkit'
-import { cartSlice } from './newsSlices'
+import { newsSlice } from '../redux/newsSlices'
 // ...
 
 export const store = configureStore({
     reducer: {
-        cartReducer: cartSlice.reducer
+        //TESTING cambiar nombre
+        newsReducer: newsSlice.reducer
     },
 })
 
