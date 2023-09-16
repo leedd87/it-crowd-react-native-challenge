@@ -9,17 +9,18 @@ import { addToFavorites, removeFromFavorites } from '../redux/newsSlices'
 
 interface Props {
     article: Article
+    route: string
 }
 
-export const NewsCards = ({ article }: Props) => {
+export const NewsCards = ({ article, route }: Props) => {
 
     const navigation = useNavigation()
     const dispatch = useAppDispatch()
+
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 
     const handleAddToArticle = () => {
         dispatch(addToFavorites({
-            //id: article.source.id,
             url: article.url,
             author: article.author,
             title: article.title,
@@ -53,44 +54,45 @@ export const NewsCards = ({ article }: Props) => {
                 <Text style={{ marginTop: 5 }}>{article.title}</Text>
             </TouchableOpacity>
 
-
-            <TouchableOpacity
-                onPress={handleAddToArticle}
-                activeOpacity={0.4}
-                style={{
-                    width: 30,
-                    height: 30,
-                    marginHorizontal: 15,
-                    marginVertical: 5,
-                    borderRadius: 5,
-                    backgroundColor: '#846A6A',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                {/* <Text style={{ alignSelf: 'center', color: '#EEF0F2' }}>Save for Later</Text> */}
-                <Icon name="heart-outline" size={25} color="#EEF0F2" />
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={handleRemoveArticle}
-                activeOpacity={0.4}
-                style={{
-                    width: 30,
-                    height: 30,
-                    marginHorizontal: 15,
-                    marginVertical: 5,
-                    borderRadius: 5,
-                    backgroundColor: '#846A6A',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <Icon name="trash-bin-outline" size={25} color="#EEF0F2" />
-            </TouchableOpacity>
-
+            {
+                route === 'Home' ?
+                    (<TouchableOpacity
+                        onPress={handleAddToArticle}
+                        activeOpacity={0.4}
+                        style={{
+                            width: 30,
+                            height: 30,
+                            marginHorizontal: 15,
+                            marginVertical: 5,
+                            borderRadius: 5,
+                            backgroundColor: '#846A6A',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <Icon name="heart-outline" size={25} color="#EEF0F2" />
+                    </TouchableOpacity>
+                    ) : (
+                        <TouchableOpacity
+                            onPress={handleRemoveArticle}
+                            activeOpacity={0.4}
+                            style={{
+                                width: 30,
+                                height: 30,
+                                marginHorizontal: 15,
+                                marginVertical: 5,
+                                borderRadius: 5,
+                                backgroundColor: '#846A6A',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Icon name="trash-bin-outline" size={25} color="#EEF0F2" />
+                        </TouchableOpacity>
+                    )
+            }
             <Divider />
         </View>
-
     )
 }
 

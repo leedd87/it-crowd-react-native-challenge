@@ -7,12 +7,14 @@ import { getNewsByCategoryApi } from '../api/newsApi';
 import { Article, News } from '../interfaces/newsInterface';
 import { NewsCards } from '../components/NewsCards';
 import { Categories } from '../components/Categories'
+import { useRoute } from '@react-navigation/native';
 
 
 export const HomeScreen = () => {
 
     const [categoryPressed, setCategoryPressed] = useState(false)
     const [newsByCategory, setNewsByCategory] = useState<Article[]>([])
+    const route = useRoute()
 
     const { news, isLoading } = useNews()
 
@@ -37,7 +39,7 @@ export const HomeScreen = () => {
             <Categories getNewsByCategory={getNewsByCategory} setCategoryPressed={setCategoryPressed} />
             <FlatList
                 data={categoryPressed ? newsByCategory : news}
-                renderItem={({ item, index }: any) => <NewsCards article={item} key={`news-${index}`} />}
+                renderItem={({ item, index }: any) => <NewsCards article={item} key={`news-${index}`} route={route.name} />}
                 style={{ marginTop: 10 }}
             />
         </SafeAreaView>
