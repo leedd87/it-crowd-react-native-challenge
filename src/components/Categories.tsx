@@ -1,6 +1,10 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
+type Category = {
+    name: string;
+    onPress: () => void;
+};
 
 export const Categories = ({ getNewsByCategory, setCategoryPressed }: any) => {
 
@@ -13,59 +17,28 @@ export const Categories = ({ getNewsByCategory, setCategoryPressed }: any) => {
         setCategoryPressed(false)
     }
 
+    const categories: Category[] = [
+        { name: 'Argentina', onPress: () => handlePressGeneral() },
+        { name: 'Business', onPress: () => handlePress('business') },
+        { name: 'Entertainment', onPress: () => handlePress('entertainment') },
+        { name: 'Health', onPress: () => handlePress('health') },
+        { name: 'Science', onPress: () => handlePress('science') },
+        { name: 'Sports', onPress: () => handlePress('sports') },
+        { name: 'Technology', onPress: () => handlePress('technology') },
+    ];
 
     return (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginHorizontal: 5 }}>
-            <TouchableOpacity
-
-                activeOpacity={0.4}
-                onPress={() => handlePressGeneral()}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Argentina</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('business')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Business</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('entertainment')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Entertainment</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('health')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Health</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('science')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Science</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('sports')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Sports</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={() => handlePress('technology')}
-                style={styles.container}
-            >
-                <Text style={{ alignSelf: 'center' }}>Technology</Text>
-            </TouchableOpacity>
+            {categories.map((category, index) => (
+                <TouchableOpacity
+                    key={index}
+                    activeOpacity={0.4}
+                    onPress={category.onPress}
+                    style={styles.container}
+                >
+                    <Text style={{ alignSelf: 'center' }}>{category.name}</Text>
+                </TouchableOpacity>
+            ))}
         </ScrollView>
 
     )

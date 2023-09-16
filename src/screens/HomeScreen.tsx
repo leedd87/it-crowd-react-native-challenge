@@ -14,9 +14,9 @@ export const HomeScreen = () => {
 
     const [categoryPressed, setCategoryPressed] = useState(false)
     const [newsByCategory, setNewsByCategory] = useState<Article[]>([])
-    const route = useRoute()
 
     const { news, isLoading } = useNews()
+    const route = useRoute()
 
     const getNewsByCategory = async (category: string) => {
         const resp = await getNewsByCategoryApi.get<News>(`/v2/top-headlines`, { params: { category } })
