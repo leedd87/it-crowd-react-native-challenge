@@ -7,9 +7,12 @@ import { Platform, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
+
 const Tab = createBottomTabNavigator<RootStackParams>();
 
+
 export const TabsNavigator = () => {
+
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -37,8 +40,10 @@ export const TabsNavigator = () => {
                     return Platform.OS === 'ios'
                         ?
                         <Icon name={iconName} size={25} color={"white"} style={{ marginTop: 25 }} />
+
                         :
                         <Icon name={iconName} size={25} color={"white"} />
+
                 }
             })}
         >
