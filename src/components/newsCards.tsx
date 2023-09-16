@@ -5,12 +5,19 @@ import { useNavigation } from '@react-navigation/native'
 import { Divider } from '../utils/Divider'
 import { useAppDispatch } from '../redux/redux-hooks/redux-hooks'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { addToCart } from '../redux/newsSlices'
 
 interface Props {
     article: Article
 }
 
 export const NewsCards = ({ article }: Props) => {
+
+    //TESTING LE debo pasar al dispatch las variables de article EJemplo
+    let id = Number(article.source.id)
+    let name = article.publishedAt
+    let image = article.urlToImage
+    let info = article.title
 
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 
@@ -19,7 +26,10 @@ export const NewsCards = ({ article }: Props) => {
     //TESTING haciendo redux aca para guardar los articles
     const dispatch = useAppDispatch()
     //TODO cambiar nombre
-    const handleAddToCart = () => { }
+    const handleAddToCart = () => {
+        console.log(dispatch(addToCart({ id, name, image, info })))
+
+    }
 
     return (
         <View>
@@ -43,7 +53,7 @@ export const NewsCards = ({ article }: Props) => {
             </TouchableOpacity>
             {/* //TODO Favoritos */}
             <TouchableOpacity
-                onPress={() => console.log('GUARDAR')}
+                onPress={handleAddToCart}
                 activeOpacity={0.4}
                 style={{
                     width: 30,
