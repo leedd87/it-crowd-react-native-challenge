@@ -3,6 +3,7 @@ import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-n
 import { Article } from '../interfaces/newsInterface'
 import { useNavigation } from '@react-navigation/native'
 import { Divider } from '../utils/Divider'
+import { useAppDispatch } from '../redux/redux-hooks/redux-hooks'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props {
@@ -14,6 +15,11 @@ export const NewsCards = ({ article }: Props) => {
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 
     const navigation = useNavigation()
+
+    //TESTING haciendo redux aca para guardar los articles
+    const dispatch = useAppDispatch()
+    //TODO cambiar nombre
+    const handleAddToCart = () => { }
 
     return (
         <View>

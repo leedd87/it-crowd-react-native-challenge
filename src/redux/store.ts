@@ -13,7 +13,7 @@ import { cartSlice } from './newsSlices'
 
 export const store = configureStore({
     reducer: {
-        newsReducer: cartSlice.reducer
+        cartReducer: cartSlice.reducer
     },
 })
 

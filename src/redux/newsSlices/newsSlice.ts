@@ -26,7 +26,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
 
-//TODO esto ya esta tipado en teoria deberia poder exportar la interface de Article a donde uso el CartState
+//TODO este es el tipado del Article pero tengo que crear otra interface para que Add y Remove (tengo dudas de como acceder al source)
 // export interface Article {
 //     source: Source
 //     author: null | string;
@@ -43,23 +43,34 @@ import type { RootState } from '../store'
 //     name: string;
 // }
 
-interface CartState {
+interface CartAddState {
     id: string | number;
     name: string
     image: string,
     info: string
 }
+
+interface CartRemoveState {
+    id: string | number
+}
 //TODO el iniciaState => es un array de articles
-const initialState: CartState[] = []
+const initialState: CartAddState[] = []
 
 export const cartSlice = createSlice({
     name: 'cart',
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
-        addToCart: (state, action: PayloadAction<CartState>) => { },
-        removeToCart: () => { }
+        addToCart: (state, action: PayloadAction<CartAddState>) => {
+            const { id } = action.payload
+            if (
+                state.length === 0 ||
+                state.filter(item => item.id === id).length === 0) {
+                state.push(action.payload)
+            }
+        },
+        removeToCart: (state, action: PayloadAction<CartRemoveState>) => { },
     },
 })
 
-export const { } = cartSlice.actions
+export const { addToCart, removeToCart } = cartSlice.actions
