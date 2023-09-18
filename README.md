@@ -30,4 +30,4 @@ For  ios run: `yarn run ios` or `npm run ios`
 
 ### Notes
 *First time using typescript in a project (learning typescript)*
-*First time using redux slices*
+*First time using redux-toolkit slices*
