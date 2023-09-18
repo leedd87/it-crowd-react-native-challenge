@@ -29,5 +29,5 @@ For  ios run: `yarn run ios` or `npm run ios`
 3. axios
 
 ### Notes
-*First time using typescript in a project (learning typescript)*
-*First time using redux-toolkit slices*
+- *First time using typescript in a project (learning typescript)*
+- *First time using redux-toolkit slices*
