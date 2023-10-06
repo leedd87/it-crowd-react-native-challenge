@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Article } from '../interfaces/newsInterface'
 import { useNavigation } from '@react-navigation/native'
-import { Divider } from '../utils/Divider'
+import { Divider } from './ui/Divider'
 import { useAppDispatch } from '../redux/redux-hooks/redux-hooks'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { addToFavorites, removeFromFavorites } from '../redux/newsSlices'
@@ -16,6 +16,9 @@ export const NewsCards = ({ article, route }: Props) => {
 
     const navigation = useNavigation()
     const dispatch = useAppDispatch()
+
+    const { urlToImage, url, author, title, content, description, publishedAt } = article
+    //console.log(testing)
 
     const uri = article.urlToImage !== null ? article.urlToImage : 'https://loremflickr.com/320/240'
 

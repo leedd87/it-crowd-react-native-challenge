@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity, Linking, SafeAreaView } from 'react-native'
 import { RootStackParams } from '../navigation/Navigation'
-import { Divider } from '../utils/Divider'
+import { Divider } from '../components/ui/Divider'
 
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { }

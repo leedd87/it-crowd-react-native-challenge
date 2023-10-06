@@ -1,9 +1,10 @@
-import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
 export const Divider = () => {
     return (
-        <View style={styles.line}></View>
+
+        <View style={styles.line} ></View>
+
     )
 }
 

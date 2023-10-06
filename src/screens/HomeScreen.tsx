@@ -5,9 +5,10 @@ import { useNews } from '../hooks/useNews';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getNewsByCategoryApi } from '../api/newsApi';
 import { Article, News } from '../interfaces/newsInterface';
-import { NewsCards } from '../components/NewsCards';
+
 import { Categories } from '../components/Categories'
 import { useRoute } from '@react-navigation/native';
+import { NewsCards } from '../components/NewsCards';
 
 
 export const HomeScreen = () => {
