@@ -18,6 +18,7 @@ export const HomeScreen = () => {
 
     const { news, isLoading } = useNews()
     const route = useRoute()
+    console.log("🚀 ~ file: HomeScreen.tsx:21 ~ HomeScreen ~ route:", route)
 
     const getNewsByCategory = async (category: string) => {
         const resp = await getNewsByCategoryApi.get<News>(`/v2/top-headlines`, { params: { category } })

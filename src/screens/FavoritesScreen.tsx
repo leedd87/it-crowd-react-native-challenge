@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Text, View, SafeAreaView, StyleSheet, FlatList } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useAppSelector } from '../redux/redux-hooks/redux-hooks';
 import { NewsCards } from '../components/NewsCards';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 
 export const FavoritesScreen = () => {
 
     const route = useRoute()
-    console.log("🚀 ~ file: FavoritesScreen.tsx:11 ~ FavoritesScreen ~ route:", route.name)
+
     const favoriteNews = useAppSelector(state => state.newsReducer)
 
     return (

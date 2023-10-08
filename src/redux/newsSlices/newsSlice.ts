@@ -33,13 +33,7 @@ export const newsSlice = createSlice({
                 return state = state.filter((item) => item.url !== url)
             }
         },
-    },
-    //TESTING
-    // extraReducers:(builder)=>{
-    //     builder.addCase(getNewsAsyncThunk.fulfilled,(state,action)=>{
-    //         state.entries = action.payload
-    //     })
-    // }
+    }
 })
 
 export const { addToFavorites, removeFromFavorites } = newsSlice.actions
