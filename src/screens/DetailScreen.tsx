@@ -18,25 +18,41 @@ export const DetailScreen = ({ route }: Props) => {
     };
 
     return (
-        <SafeAreaView style={styles.detailContainer}>
-            <Text style={styles.titleText}>{article.title}</Text>
-            <Text style={styles.descriptionText}>{article.description}</Text>
-            <Divider />
-            <Text style={styles.authorText}>{article.author}</Text>
-            <Divider />
-            <Image
-                source={{ uri }}
-                style={styles.image}
-            />
-            <Text style={styles.urlText}>View full article at:</Text>
-            <TouchableOpacity onPress={handleOpenURL} style={{ marginTop: 5 }}>
-                <Text style={styles.linkText}>{article.url}</Text>
-            </TouchableOpacity>
+        <SafeAreaView>
+            <View style={styles.titleContainer}>
+                <Text style={styles.detailText}>News App</Text>
+            </View>
+            <View style={styles.detailContainer}>
+                <Text style={styles.titleText}>{article.title}</Text>
+                <Text style={styles.descriptionText}>{article.description}</Text>
+                <Divider />
+                <Text style={styles.authorText}>{article.author}</Text>
+                <Divider />
+                <Image
+                    source={{ uri }}
+                    style={styles.image}
+                />
+                <Text style={styles.urlText}>View full article at:</Text>
+                <TouchableOpacity onPress={handleOpenURL} style={{ marginTop: 5 }}>
+                    <Text style={styles.linkText}>{article.url}</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
+    titleContainer: {
+        backgroundColor: '#586A6A',
+        paddingVertical: 10,
+        alignItems: 'center',
+    },
+    detailText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'white',
+        fontFamily: 'Helvetica',
+    },
     detailContainer: {
 
         height: '100%',

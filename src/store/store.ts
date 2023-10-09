@@ -4,7 +4,6 @@ import { newsSlice } from '../redux/newsSlices'
 
 export const store = configureStore({
     reducer: {
-        //TESTING cambiar nombre
         newsReducer: newsSlice.reducer
     },
 })

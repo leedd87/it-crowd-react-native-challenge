@@ -5,6 +5,8 @@ import { FavoritesScreen } from '../screens/FavoritesScreen';
 import { RootStackParams } from './Navigation';
 import { Platform, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { DetailScreen } from '../screens/DetailScreen';
+import { HomeStackNavigation } from './HomeStackNavigation';
 
 
 
@@ -35,6 +37,9 @@ export const TabsNavigator = () => {
                         case 'Favorites':
                             iconName = 'heart-outline'
                             break;
+                        // case 'DetailScreen':
+                        //     iconName = 'heart-outline'
+                        //     break;
                     }
 
                     return Platform.OS === 'ios'
@@ -47,8 +52,12 @@ export const TabsNavigator = () => {
                 }
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
+            {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
+            <Tab.Screen name="Home" component={HomeStackNavigation} />
+            {/* <Tab.Screen name="DetailScreen" component={DetailScreen} /> */}
             <Tab.Screen name="Favorites" component={FavoritesScreen} />
+
         </Tab.Navigator>
     );
 }
+
