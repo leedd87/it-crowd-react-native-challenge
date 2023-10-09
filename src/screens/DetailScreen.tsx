@@ -3,11 +3,15 @@ import React from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity, Linking, SafeAreaView } from 'react-native'
 import { RootStackParams } from '../navigation/Navigation'
 import { Divider } from '../components/ui/Divider'
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native'
 
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { }
 
 export const DetailScreen = ({ route }: Props) => {
+
+    const { goBack } = useNavigation()
 
     const article = route.params
 
@@ -19,7 +23,10 @@ export const DetailScreen = ({ route }: Props) => {
 
     return (
         <SafeAreaView>
-            <View style={styles.titleContainer}>
+            <View style={styles.headerContainer}>
+                <TouchableOpacity style={styles.backIcon} onPress={() => goBack()}>
+                    <Icon name='arrow-back-outline' size={25} color='white' />
+                </TouchableOpacity>
                 <Text style={styles.detailText}>News App</Text>
             </View>
             <View style={styles.detailContainer}>
@@ -47,14 +54,21 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         alignItems: 'center',
     },
+    headerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 16,
+        paddingTop: 8,
+        paddingBottom: 8,
+        backgroundColor: '#586A6A',
+    },
     detailText: {
+        color: 'white',
         fontSize: 24,
         fontWeight: 'bold',
-        color: 'white',
-        fontFamily: 'Helvetica',
+        textAlign: 'center',
     },
     detailContainer: {
-
         height: '100%',
         margin: 15,
     },
@@ -85,5 +99,8 @@ const styles = StyleSheet.create({
     linkText: {
         color: 'blue',
         textDecorationLine: 'none',
+    },
+    backIcon: {
+        marginRight: 16,
     },
 })

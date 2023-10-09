@@ -1,10 +1,13 @@
 import React from 'react'
-import { Text, View, SafeAreaView, StyleSheet, FlatList } from 'react-native'
+import { Text, View, SafeAreaView, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import { useAppSelector } from '../redux/redux-hooks/redux-hooks';
 import { NewsCards } from '../components/NewsCards';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const FavoritesScreen = () => {
+
+    const { goBack } = useNavigation()
 
     const route = useRoute()
 
@@ -12,8 +15,11 @@ export const FavoritesScreen = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>Favorites</Text>
+            <View style={styles.headerContainer}>
+                <TouchableOpacity style={styles.backIcon} onPress={() => goBack()}>
+                    <Icon name='arrow-back-outline' size={25} color='white' />
+                </TouchableOpacity>
+                <Text style={styles.detailText}>Favorites</Text>
             </View>
             <FlatList
                 data={favoriteNews}
@@ -35,5 +41,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         fontFamily: 'Helvetica',
+    },
+    backIcon: {
+        marginRight: 16,
+    },
+    headerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 16,
+        paddingTop: 8,
+        paddingBottom: 8,
+        backgroundColor: '#586A6A',
+    },
+    detailText: {
+        color: 'white',
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    detailContainer: {
+        height: '100%',
+        margin: 15,
     },
 });

@@ -30,7 +30,6 @@ export const Navigation = () => {
             }}
         >
             <Stack.Screen name="TabsNavigator" component={TabsNavigator} />
-            {/* <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigation} /> */}
             <Stack.Screen name="DetailScreen" component={DetailScreen} />
         </Stack.Navigator>
     );
