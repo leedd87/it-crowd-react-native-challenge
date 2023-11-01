@@ -1,0 +1,4 @@
+{
+    "typescript.format.indentSwitchCase": false,
+    "prettier.tabWidth": 4
+}
